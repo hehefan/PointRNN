@@ -29,6 +29,9 @@ If you find our work useful in your research, please consider citing:
   year      = {2019}
 }
 ```
+### Related Repos
+1. PointRNN PyTorch implementation: https://github.com/hehefan/PointRNN-PyTorch
+2. PointNet++ TensorFlow implementation: https://github.com/charlesq34/pointnet2
 ### Visualization
 | Dataset      |    1 MNIST     |   2 MNIST  | [Argoverse](https://argoverse.org) | [Argoverse](https://argoverse.org) | [nuScenes](https://nuscenes.org)    | [nuScenes](https://nuscenes.org) |
 |--------------|----------------|---------------|---------------|---------------|-------------|-------------|

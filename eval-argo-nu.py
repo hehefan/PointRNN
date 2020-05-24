@@ -47,4 +47,4 @@ with tf.Session() as sess:
         outputs.append(predicted_frames)
 
     outputs = np.concatenate(outputs, 0)
-    np.save(os.path.join(args.log_dir, 'test-predictions'), frame_outputs)
+    np.save(os.path.join(args.log_dir, 'test-predictions'), outputs)

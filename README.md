@@ -13,6 +13,29 @@
 ## Moving Point Cloud Prediction 
 ![](https://github.com/hehefan/PointRNN/blob/master/imgs/prediction.png)
 
+## Installation
+
+The code is tested with Red Hat Enterprise Linux Workstation release 7.7 (Maipo), g++ (GCC) 5.3.1, TensorFlow v1.12, CUDA 9.0 and cuDNN v7.4.
+
+Install TensorFlow v1.12:
+```
+pip install tensorflow-gpu==1.12
+```
+
+Compile the CUDA layers for [PointNet++](http://arxiv.org/abs/1706.02413), which we used for furthest point sampling (FPS) and radius neighbouring search, and Chamfer Distance (CD) and Earth Mover's Distance (EMD):
+```
+cd modules/tf_ops/3d_interpolation && make
+cd modules/tf_ops/approxmatch && make
+cd modules/tf_ops/grouping && make
+cd modules/tf_ops/nn_distance && make
+cd modules/tf_ops/sampling && make
+```
+Before compiling, plese correctly set the CUDA_HOME and CUDNN_HOME in each Makefile under the 3d_interpolation, approxmatch, grouping, nn_distance and sampling directories, resplectively.
+```
+CUDA_HOME := /usr/local/cuda-9.0
+CUDNN_HOME := /usr/local/cudnn7.4-9.0
+```
+
 ### Datasets
 We provide the test sets for evaluating moving point cloud prediction:
 1. [Moving MNIST Point Cloud (1 digit)](https://drive.google.com/open?id=17RpNwMLDcR5fLr0DJkRxmC5WgFn3RwK_) &emsp; 2. [Moving MNIST Point Cloud (2 digits)](https://drive.google.com/open?id=11EkVsE5fmgU5D5GsOATQ6XN17gmn7IvF) &emsp; 3. [Argoverse](https://drive.google.com/open?id=1uDsNN856IjOAOz2swfVpAjmSaEshWzHk) &emsp; 4. [nuScenes](https://drive.google.com/open?id=1nncU3D_nAjgLi_a_kxMtIaebB5WVQTDD)
